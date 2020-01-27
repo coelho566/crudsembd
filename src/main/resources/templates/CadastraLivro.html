@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ 		layout:decorator="TemplatePadrao">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<section layout:fragment="conteudo">
+
+<div class="container">
+	<h1>Cadastrar / Editar</h1>
+	
+	<form method="POST" action="/titulos" th:object="${livro}" class="col-4">
+	<input type="hidden" th:field=*{id}>
+	  <div class="form-group" th:classapend="${#fields.hasErrors('titulo')} ? has-error">
+	    <label for="formGroupExampleInput">Titulo</label>
+	    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Titulo" th:field="*{titulo}">
+	  </div>
+	  <div class="form-group" th:classapend="${#fields.hasErrors('autor')} ? has-error">
+	    <label for="formGroupExampleInput2">Autor</label>
+	    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Autor" th:field="*{autor}">
+	  </div>
+	   <button type="submit" class="btn btn-primary">Cadastrar</button>
+	</form>
+</div>	
+</section>
+</html>
